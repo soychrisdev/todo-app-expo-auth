@@ -1,31 +1,43 @@
-import { StyleSheet } from 'react-native';
+import { ScrollView, ScrollViewBase, StyleSheet, Text, View } from "react-native"
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-import EditScreenInfo from '@/components/EditScreenInfo';
-import { Text, View } from '@/components/Themed';
-
-export default function TabOneScreen() {
+export const Home = () => {
+  const items = Array.from({ length: 100 }, (_, index) => `Item ${index + 1}`);
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/(tabs)/index.tsx" />
-    </View>
-  );
-}
+    <SafeAreaView >
+      <ScrollView style={{
+        backgroundColor: 'blue',
+        // flex: 1,
+        // height: 1,
+        // maxHeight: 1,
+        // width: '100%',
+        // height: '100%',
+      
+      }}>
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
-  },
-});
+      {items.map((item) => (
+        <>
+        
+        <View key={item} style={{ flex: 1, backgroundColor: 'green'}}>
+          <Text >AKJSKASDJKSA </Text>
+        </View>
+        </>
+      ))}
+      </ScrollView>
+      
+      
+    </SafeAreaView>
+  )
+}
+export default Home
+
+const styles = StyleSheet.create({ container: {
+  flex: 1,
+  // backgroundColor: '#fff',
+  height: '100%',
+  backgroundColor: 'red',
+  // alignItems: 'center',
+  justifyContent: 'center',
+},
+
+}); 
